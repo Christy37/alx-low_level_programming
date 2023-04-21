@@ -3,28 +3,17 @@
 /**
  * main - Entry point
  *
- * Return: Always 0 (Succes)
+ *
+ * Return: Always 0 (Sucess)
  */
 
 int main(void)
 {
-	int n;
-	int i = 0;
+	char c;
 
-	for (n = 0 ; n < 100 ; n++)
+	for (c = 'a' ; c <= 'z' ; c++)
 	{
-		putchar(n / 10 + '0');
-		putchar(i + '0');
-		if (n < 99)
-		{
-			putchar(',');
-			putchar(32);
-		}
-		i++;
-		if (i > 9)
-		{
-			i = 0;
-		}
+		putchar(c);
 	}
 	putchar('\n');
 	return (0);
