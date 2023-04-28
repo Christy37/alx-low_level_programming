@@ -1,23 +1,46 @@
-#include <stdio.h>
+#include "main.h"
 
-int main(void)
+/**
+ * print_number -  checks for checks for a digit (0 through 9).
+ * @n: n -  Variable
+ * Return: Always 0.
+ */
+void print_number(int n)
 {
-	long num = 612852475143;
-	long factor = 2;
-	long largest = 0;
-    
-	while (num > 1)
+	unsigned int z;
+	int m, b;
+
+	b = 10;
+
+	if (n < 10 && n >= 0)
 	{
-		if (num % factor == 0)
-		{
-			num /= factor;
-			largest = factor;
-		} 
-		else
-		{
-			factor++;
-		}
+		_putchar (n + '0');
 	}
-	printf("%ld\n", largest); 
-	return 0;
+	else if (n > -10 && n < 0)
+	{
+		n = n - 2 * n;
+		_putchar('-');
+		_putchar (n + '0');
+	}
+
+	else
+	{
+		if (n < 0)
+		{
+			n = n * -1;
+			_putchar ('-');
+		}
+		z = n;
+	while (z / b > 9)
+	{
+		b = b * 10;
+	}
+	while (b > 0)
+	{
+		m = z / b;
+		z = z % b;
+		_putchar (m + '0');
+		b = b / 10;
+	}
+	}
 }
