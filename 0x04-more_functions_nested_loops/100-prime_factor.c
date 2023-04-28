@@ -1,46 +1,47 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdint.h>
+#include <math.h>
 
 /**
- * print_number -  checks for checks for a digit (0 through 9).
- * @n: n -  Variable
- * Return: Always 0.
+ * main - prints the largest prime factor of the number 612852475143
+ *
+ * Return: 0 if successful
  */
-void print_number(int n)
+int main(void)
 {
-	unsigned int z;
-	int m, b;
+	int64_t num = 6000000;/**/
+	int64_t add = 100000;
+	int64_t mid = 70499;
+	int64_t largest;
+	int64_t i;
 
-	b = 10;
+	num *= 100000;
+	add *= 100000;
+	mid *= 10000;
+	num += add;
+	num += mid;
+	num += INT32_MAX;
+	num += 1496;
 
-	if (n < 10 && n >= 0)
+	while (num % 2 == 0)
 	{
-		_putchar (n + '0');
+		largest = 2;
+		num /= 2;
 	}
-	else if (n > -10 && n < 0)
-	{
-		n = n - 2 * n;
-		_putchar('-');
-		_putchar (n + '0');
-	}
 
-	else
+	for (i = 3; i <= sqrt(num); i += 2)
 	{
-		if (n < 0)
+		while (num % i == 0)
 		{
-			n = n * -1;
-			_putchar ('-');
+			if (i > largest)
+				largest = i;
+			num /= i;
 		}
-		z = n;
-	while (z / b > 9)
-	{
-		b = b * 10;
 	}
-	while (b > 0)
-	{
-		m = z / b;
-		z = z % b;
-		_putchar (m + '0');
-		b = b / 10;
-	}
-	}
+
+	if (num > 2 && num > largest)
+		largest = num;
+
+	printf("%ld\n", (long int)largest);
+	return (0);
 }
