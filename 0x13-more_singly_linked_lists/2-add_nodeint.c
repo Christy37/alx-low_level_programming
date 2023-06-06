@@ -2,10 +2,10 @@
 /**
  * add_nodeint - adds a node
  * @head: is the head node
- * @m: a variable
+ * @n: a variable
  * Return: a new node
  */
-listint_t *add_nodeint(listint_t **head, const int m)
+listint_t *add_nodeint(listint_t **head, const int n)
 {
 	listint_t *new;
 
@@ -16,7 +16,7 @@ listint_t *add_nodeint(listint_t **head, const int m)
 	if (new == NULL)
 		return (NULL);
 
-	new->m = m;
+	new->n = n;
 	new->next = *head;
 	*head = new;
 
